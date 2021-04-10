@@ -9,13 +9,24 @@ public class Pez extends Animal {
 	public int salmones;
 	public int bacalaos;
 	private String colorEscamas;
-	private int colorAletas;
+	private int cantidadAletas;
 	
 	// ===========================================================
 	// Constructor
 	public Pez(int totalAnimales, String nombre, int edad, String habitad, String genero, Zona[] zona,
 			Pez[] listado, int salmones, int bacalaos, String colorEscamas, int colorAletas) {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
+	}
+	
+	public Pez(String nombre, int edad, String habitad, String genero,
+			String colorEscamas, int cantidadAletas) {
+		super(nombre, edad, habitad, genero);
+		this.colorEscamas = colorEscamas;
+		this.cantidadAletas = cantidadAletas;
+	}
+	
+	public Pez() {
+		// Vacío
 	}
 	
 	// ===========================================================
@@ -54,12 +65,12 @@ public class Pez extends Animal {
 		this.colorEscamas = colorEscamas;
 	}
 
-	public int getColorAletas() {
-		return colorAletas;
+	public int getCantidadAletas() {
+		return cantidadAletas;
 	}
 
-	public void setColorAletas(int colorAletas) {
-		this.colorAletas = colorAletas;
+	public void setCantidadAletas(int colorAletas) {
+		this.cantidadAletas = colorAletas;
 	}
 	
 	

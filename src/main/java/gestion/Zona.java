@@ -5,15 +5,24 @@ public class Zona {
 	// ===========================================================
 	// Atributos
 	private String nombre;
-	private Zoologico zoo[];
+	private Zoologico zoo;
 	private Animal animales[]; // Chequear que sí sea estática
 	
 	// ===========================================================
 	// Constructor
-	public Zona(String nombre, Zoologico[] zoo, Animal[] animales) {
+	public Zona(String nombre, Zoologico zoo, Animal[] animales) {
 		this.nombre = nombre;
 		this.zoo = zoo;
 		this.animales = animales;
+	}
+	
+	public Zona(String nombre, Zoologico zoo) {
+		this.nombre = nombre;
+		this.zoo = zoo;
+	}
+	
+	public Zona() {
+		// Vacío
 	}
 	
 	// ===========================================================
@@ -36,11 +45,11 @@ public class Zona {
 		this.nombre = nombre;
 	}
 
-	public Zoologico[] getZoo() {
+	public Zoologico getZoo() {
 		return zoo;
 	}
 
-	public void setZoo(Zoologico[] zoo) {
+	public void setZoo(Zoologico zoo) {
 		this.zoo = zoo;
 	}
 

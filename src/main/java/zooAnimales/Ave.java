@@ -17,6 +17,15 @@ public class Ave extends Animal {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
+	public Ave(String nombre, int edad, String habitad, String genero,String colorPlumas) {
+		super(nombre, edad, habitad, genero);
+		this.colorPlumas = colorPlumas;
+	}
+	
+	public Ave() {
+		// Vacío
+	}
+	
 	// ===========================================================
 	// Métodos principales
 	

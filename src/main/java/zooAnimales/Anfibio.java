@@ -18,6 +18,18 @@ public class Anfibio extends Animal {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
+	public Anfibio(String nombre, int edad, String habitad, String genero,
+			String colorPiel, boolean venenoso) {
+		super(nombre, edad, habitad, genero);
+		this.colorPiel = colorPiel;
+		this.venenoso = venenoso;
+	}
+	
+	public Anfibio() {
+		// Vacío
+	}
+	
+	
 	// ===========================================================
 	// Métodos principales
 	

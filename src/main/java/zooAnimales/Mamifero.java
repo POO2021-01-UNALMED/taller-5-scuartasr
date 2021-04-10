@@ -18,6 +18,17 @@ public class Mamifero extends Animal {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
+	public Mamifero(String nombre, int edad, String habitad, String genero,
+			boolean pelaje, int patas) {
+		super(nombre, edad, habitad, genero);
+		this.pelaje = pelaje;
+		this.patas = patas;
+	}
+	
+	public Mamifero() {
+		// Vacío 
+	}
+	
 	// ===========================================================
 	// Métodos principales
 	public void cantidadMamifero() {

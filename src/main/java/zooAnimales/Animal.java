@@ -7,19 +7,30 @@ public class Animal {
 	private static int totalAnimales; // Chequear que sí sea estática
 	private String nombre;
 	private int edad;
-	private String habitad;
+	private String habitat;
 	private String genero;
 	private Zona zona[];
 	
 	// ===========================================================
 	// Constructor
-	public Animal(int totalAnimales, String nombre, int edad, String habitad, String genero, Zona[] zona) {
+	public Animal(int totalAnimales, String nombre, int edad, String habitat, String genero, Zona[] zona) {
 		this.totalAnimales = totalAnimales;
 		this.nombre = nombre;
 		this.edad = edad;
-		this.habitad = habitad;
+		this.habitat = habitat;
 		this.genero = genero;
 		this.zona = zona;
+	}
+	
+	public Animal(String nombre, int edad, String habitad, String genero) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.habitat = habitad;
+		this.genero = genero;
+	}
+	
+	public Animal() {
+		// Vacío
 	}
 	
 	// ===========================================================
@@ -69,13 +80,13 @@ public class Animal {
 	}
 	
 
-	public String getHabitad() {
-		return habitad;
+	public String getHabitat() {
+		return habitat;
 	}
 	
 
 	public void setHabitad(String habitad) {
-		this.habitad = habitad;
+		this.habitat = habitad;
 	}
 	
 

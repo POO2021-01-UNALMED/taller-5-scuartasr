@@ -18,6 +18,17 @@ public class Reptil extends Animal {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
+	public Reptil(String nombre, int edad, String habitad, String genero,
+			String colorEscamas, int largoCola) {
+		super(nombre, edad, habitad, genero);
+		this.colorEscamas = colorEscamas;
+		this.largoCola = largoCola;
+	}
+	
+	public Reptil() {
+		// Vacío
+	}
+	
 	// ===========================================================
 	// Métodos principales
 	
