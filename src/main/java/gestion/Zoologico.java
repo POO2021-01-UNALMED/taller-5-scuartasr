@@ -1,15 +1,21 @@
 package gestion;
+import java.util.Vector;
+import zooAnimales.Animal;
 
 public class Zoologico {
 	// ===========================================================
-	// Atributos
+	// Atributos principales 
 	private String nombre;
 	private String ubicacion;
-	private Zona zonas[]; // Chequear que sí sea estática
+	private Vector<Zona> zonas = new Vector<>();
+	
+	// Atributos auxiliares
+	public int totalAnimales;
+	public Vector<Animal> animalitos = new Vector<>();
 	
 	// ===========================================================
 	// Constructor
-	public Zoologico(String nombre, String ubicacion, Zona[] zonas) {
+	public Zoologico(String nombre, String ubicacion, Vector<Zona> zonas) {
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 		this.zonas = zonas;
@@ -26,13 +32,17 @@ public class Zoologico {
 	
 
 	// ===========================================================
-	// Métodos
-	public void agregarZonas() {
-		// código del método
+	// Métodos principales
+		
+	public void agregarZonas(Zona zona) {
+		this.zonas.add(zona);
 	}
 
-	public void cantidadTotalAnimales() {
-		// código del método
+	public int cantidadTotalAnimales() {
+		for(int i = 0; i < zonas.size(); i++) {
+			totalAnimales = totalAnimales + zonas.get(i).cantidadAnimales();
+		}
+		return totalAnimales;
 	}
 	
 	// ===========================================================
@@ -53,11 +63,11 @@ public class Zoologico {
 		this.ubicacion = ubicacion;
 	}
 
-	public Zona[] getZonas() {
+	public Vector<Zona> getZona() {
 		return zonas;
 	}
 
-	public void setZonas(Zona[] zonas) {
+	public void setZona(Vector<Zona> zonas) {
 		this.zonas = zonas;
 	}
 

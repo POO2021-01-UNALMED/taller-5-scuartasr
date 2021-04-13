@@ -1,5 +1,5 @@
 package zooAnimales;
-import gestion.Zona;
+import gestion.*;
 
 public class Animal {
 	// ===========================================================
@@ -14,7 +14,7 @@ public class Animal {
 	// ===========================================================
 	// Constructor
 	public Animal(int totalAnimales, String nombre, int edad, String habitat, String genero, Zona[] zona) {
-		this.totalAnimales = totalAnimales;
+		Animal.totalAnimales++;
 		this.nombre = nombre;
 		this.edad = edad;
 		this.habitat = habitat;
@@ -23,6 +23,7 @@ public class Animal {
 	}
 	
 	public Animal(String nombre, int edad, String habitad, String genero) {
+		Animal.totalAnimales++;
 		this.nombre = nombre;
 		this.edad = edad;
 		this.habitat = habitad;
@@ -35,16 +36,34 @@ public class Animal {
 	
 	// ===========================================================
 	// Métodos	
-	public void movimiento() {
-		// código del método
+	public static String totalPorTipo() {
+		int numeroMamifero = Mamifero.getListado().size();
+		int numeroAve = Ave.getListado().size();
+		int numeroReptil = Reptil.getListado().size();
+		int numeroAnfibio = Anfibio.getListado().size();
+		int numeroPez = Pez.getListado().size();
+		return "Mamiferos: " + numeroMamifero +
+				"\nAves: " + numeroAve +
+				"\nReptiles: " + numeroReptil +
+				"\nPeces: " + numeroPez +
+				"\nAnfibios: " + numeroAnfibio;
+		
 	}
 	
-	public void totalPorTipo() {
-		// código del método 
+	public String movimiento() {
+		return "desplazarse";
 	}
 	
 	public String toString() {
-		return "ESCRIBIR EL CÓDIGO";
+		if (this.zona != null) {
+			return "Mi nombre es " + this.nombre + ", tengo una edad de " + this.edad + ", habito en " + 
+					this.habitat + " y mi genero es " + this.genero + ", la zona en la que me ubico es " + 
+					this.zona + ", en el " + this.zona[0].getZoo();
+		}
+		else {
+			return "Mi nombre es " + this.nombre + ", tengo una edad de " + this.edad + ", habito en " + 
+					this.habitat + " y mi genero es " + this.genero;
+		}
 	}
 	
 	// ===========================================================
@@ -85,7 +104,7 @@ public class Animal {
 	}
 	
 
-	public void setHabitad(String habitad) {
+	public void setHabitat(String habitad) {
 		this.habitat = habitad;
 	}
 	

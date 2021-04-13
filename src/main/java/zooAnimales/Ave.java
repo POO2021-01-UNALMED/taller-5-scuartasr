@@ -1,25 +1,30 @@
 package zooAnimales;
-
+import java.util.Vector;
 import gestion.Zona;
 
 public class Ave extends Animal {
 	// ===========================================================
 	// Atributos
-	private Ave listado[];
-	public int halcones;
-	public int aguilas;
+	private static Vector<Ave> listado = new Vector<>();
+	public static int halcones;
+	public static int aguilas;
 	private String colorPlumas;
 	
 	// ===========================================================
 	// Constructor
 	public Ave(int totalAnimales, String nombre, int edad, String habitad, String genero, Zona[] zona,
-					Ave[] listado, int halcones, int aguilas, String colorPlumas) {
+					Vector<Ave> listado, int halcones, int aguilas, String colorPlumas) {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
-	public Ave(String nombre, int edad, String habitad, String genero,String colorPlumas) {
-		super(nombre, edad, habitad, genero);
+	public Ave(String nombre, int edad, String habitad, String genero, String colorPlumas) {
+		super.setTotalAnimales(super.getTotalAnimales()+1);
+		super.setNombre(nombre);
+		super.setEdad(edad);
+		super.setHabitat(habitad);
+		super.setGenero(genero);
 		this.colorPlumas = colorPlumas;
+		listado.add(this);
 	}
 	
 	public Ave() {
@@ -29,31 +34,34 @@ public class Ave extends Animal {
 	// ===========================================================
 	// Métodos principales
 	
-	public void cantidadAves() {
-		// código del método
+	public int cantidadAves() {
+		return listado.size();
 	}
 	
-	public void movimiento() {
-		// código del método
+	public String movimiento() {
+		return "volar";
 	}
 
-	public void crearHalcon() {
-		// código del método
+	public static Ave crearHalcon(String nombre, int edad, String genero) {
+		halcones++;
+		return new Ave(nombre, edad, "montañas", genero, "cafe glorioso");
 	}
 	
-	public void crearAguila() {
-		// código del método
+	public static Ave crearAguila(String nombre, int edad, String genero) {
+		aguilas++;
+		return new Ave(nombre, edad, "montañas", genero, "blanco y amarillo");
+		
 	}
 	
 	// ===========================================================
 	// Getters y setters
 		
-	public Ave[] getListado() {
+	public static Vector<Ave> getListado() {
 		return listado;
 	}
 
-	public void setListado(Ave[] listado) {
-		this.listado = listado;
+	public void setListado(Vector<Ave> listado) {
+		Ave.listado = listado;
 	}
 
 	public String getColorPlumas() {

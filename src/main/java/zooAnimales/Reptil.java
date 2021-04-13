@@ -1,28 +1,33 @@
 package zooAnimales;
-
+import java.util.Vector;
 import gestion.Zona;
 
 public class Reptil extends Animal {
 	// ===========================================================
 	// Atributos
-	private Reptil listado[];
-	public int iguanas;
-	public int serpientes;
+	private static Vector<Reptil> listado = new Vector<>();
+	public static int iguanas;
+	public static int serpientes;
 	private String colorEscamas;
 	private int largoCola;
 	
 	// ===========================================================
 	// Constructor
 	public Reptil(int totalAnimales, String nombre, int edad, String habitad, String genero, Zona[] zona,
-			Reptil[] listado, int iguanas, int serpientes, String colorEscamas, int largoCola) {
+			Vector<Reptil> listado, int iguanas, int serpientes, String colorEscamas, int largoCola) {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
 	public Reptil(String nombre, int edad, String habitad, String genero,
 			String colorEscamas, int largoCola) {
-		super(nombre, edad, habitad, genero);
+		super.setTotalAnimales(super.getTotalAnimales()+1);
+		super.setNombre(nombre);
+		super.setEdad(edad);
+		super.setHabitat(habitad);
+		super.setGenero(genero);
 		this.colorEscamas = colorEscamas;
 		this.largoCola = largoCola;
+		listado.add(this);
 	}
 	
 	public Reptil() {
@@ -32,30 +37,32 @@ public class Reptil extends Animal {
 	// ===========================================================
 	// Métodos principales
 	
-	public void cantidadReptiles() {
-		// código del método
+	public int cantidadReptiles() {
+		return listado.size();
 	}
 	
-	public void movimiento() {
-		// código del método
+	public String movimiento() {
+		return "reptar";
 	}
 	
-	public void crearIguana() {
-		// código del método
+	public static Reptil crearIguana(String nombre, int edad, String genero) {
+		iguanas++;
+		return new Reptil(nombre, edad, "humedal", genero, "verde", 3);
 	}
 	
-	public void crearSerpiente() {
-		// código del método
+	public static Reptil crearSerpiente(String nombre, int edad, String genero) {
+		serpientes++;
+		return new Reptil(nombre, edad, "jungla", genero, "blanco", 1);
 	}
 
 	// ===========================================================
 	// Getters y setters
-	public Reptil[] getListado() {
+	public static Vector<Reptil> getListado() {
 		return listado;
 	}
 
-	public void setListado(Reptil[] listado) {
-		this.listado = listado;
+	public void setListado(Vector<Reptil> listado) {
+		Reptil.listado = listado;
 	}
 
 	public String getColorEscamas() {

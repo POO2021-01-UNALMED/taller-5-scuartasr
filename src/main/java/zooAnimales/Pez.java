@@ -1,28 +1,33 @@
 package zooAnimales;
-
+import java.util.Vector;
 import gestion.Zona;
 
 public class Pez extends Animal {
 	// ===========================================================
 	// Atributos
-	private Pez listado[];
-	public int salmones;
-	public int bacalaos;
+	private static Vector<Pez> listado = new Vector<>();
+	public static int salmones;
+	public static int bacalaos;
 	private String colorEscamas;
 	private int cantidadAletas;
 	
 	// ===========================================================
 	// Constructor
 	public Pez(int totalAnimales, String nombre, int edad, String habitad, String genero, Zona[] zona,
-			Pez[] listado, int salmones, int bacalaos, String colorEscamas, int colorAletas) {
+			Vector<Pez> listado, int salmones, int bacalaos, String colorEscamas, int colorAletas) {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
 	public Pez(String nombre, int edad, String habitad, String genero,
 			String colorEscamas, int cantidadAletas) {
-		super(nombre, edad, habitad, genero);
+		super.setTotalAnimales(super.getTotalAnimales()+1);
+		super.setNombre(nombre);
+		super.setEdad(edad);
+		super.setHabitat(habitad);
+		super.setGenero(genero);
 		this.colorEscamas = colorEscamas;
 		this.cantidadAletas = cantidadAletas;
+		listado.add(this);
 	}
 	
 	public Pez() {
@@ -31,30 +36,32 @@ public class Pez extends Animal {
 	
 	// ===========================================================
 	// Métodos principales
-	public void cantidadPeces() {
-		// código del método
+	public int cantidadPeces() {
+		return listado.size();
 	}
 	
-	public void movimiento() {
-		// código del método
+	public String movimiento() {
+		return "nadar";
 	}
 	
-	public void crearSalmon() {
-		// código del método
+	public static Pez crearSalmon(String nombre, int edad, String genero) {
+		salmones++;
+		return new Pez(nombre, edad, "oceano", genero, "rojo", 6);
 	}
 	
-	public void crearBacalao() {
-		// código del método
+	public static Pez crearBacalao(String nombre, int edad, String genero) {
+		bacalaos++;
+		return new Pez(nombre, edad, "oceano", genero, "gris", 6);
 	}
 	
 	// ===========================================================
 	// Getters y setters
-	public Pez[] getListado() {
+	public static Vector<Pez> getListado() {
 		return listado;
 	}
 
-	public void setListado(Pez[] listado) {
-		this.listado = listado;
+	public void setListado(Vector<Pez> listado) {
+		Pez.listado = listado;
 	}
 
 	public String getColorEscamas() {

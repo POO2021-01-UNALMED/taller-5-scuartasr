@@ -1,28 +1,33 @@
 package zooAnimales;
-
+import java.util.Vector;
 import gestion.Zona;
 
 public class Anfibio extends Animal {
 	// ===========================================================
 	// Atributos
-	private Anfibio listado[];
-	public int ranas;
-	public int salamandras;
+	private static Vector<Anfibio> listado = new Vector<>();
+	public static int ranas;
+	public static int salamandras;
 	private String colorPiel;
 	private boolean venenoso;
 	
 	// ===========================================================
 	// Constructor
 	public Anfibio(int totalAnimales, String nombre, int edad, String habitad, String genero, Zona[] zona,
-			Anfibio[] listado, int ranas, int salamandras, String colorPiel, boolean venenoso) {
+			Vector<Anfibio> listado, int ranas, int salamandras, String colorPiel, boolean venenoso) {
 		super(totalAnimales, nombre, edad, habitad, genero, zona);
 	}
 	
 	public Anfibio(String nombre, int edad, String habitad, String genero,
 			String colorPiel, boolean venenoso) {
-		super(nombre, edad, habitad, genero);
+		super.setTotalAnimales(super.getTotalAnimales()+1);
+		super.setNombre(nombre);
+		super.setEdad(edad);
+		super.setHabitat(habitad);
+		super.setGenero(genero);
 		this.colorPiel = colorPiel;
 		this.venenoso = venenoso;
+		listado.add(this);
 	}
 	
 	public Anfibio() {
@@ -33,30 +38,32 @@ public class Anfibio extends Animal {
 	// ===========================================================
 	// Métodos principales
 	
-	public void cantidadAnfibios() {
-		// código del método
+	public int cantidadAnfibios() {
+		return listado.size();
 	}
 	
-	public void movimiento() {
-		// código del método
+	public String movimiento() {
+		return "saltar";
 	}
 	
-	public void crearRana() {
-		// código del método
+	public static Anfibio crearRana(String nombre, int edad, String genero) {
+		ranas++;
+		return new Anfibio(nombre, edad, "selva", genero, "rojo", true);
 	}
 	
-	public void crearSalamandra() {
-		// código del método
+	public static Anfibio crearSalamandra(String nombre, int edad, String genero) {
+		salamandras++;
+		return new Anfibio(nombre, edad, "selva", genero, "negro y amarillo", false);
 	}
 	
 	// ===========================================================
 	// Getters y setters
-	public Anfibio[] getListado() {
+	public static Vector<Anfibio> getListado() {
 		return listado;
 	}
 
-	public void setListado(Anfibio[] listado) {
-		this.listado = listado;
+	public void setListado(Vector<Anfibio> listado) {
+		Anfibio.listado = listado;
 	}
 
 	public String getColorPiel() {

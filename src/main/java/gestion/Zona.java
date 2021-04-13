@@ -1,24 +1,26 @@
 package gestion;
 import zooAnimales.*;
+import java.util.Vector; // Se importa por el carácter dinámico del arreglo de animales
 
 public class Zona {
 	// ===========================================================
 	// Atributos
 	private String nombre;
-	private Zoologico zoo;
-	private Animal animales[]; // Chequear que sí sea estática
-	
+	private Zoologico[] zoo = new Zoologico[1];
+	private Vector<Animal> animales = new Vector<>();
+		
 	// ===========================================================
 	// Constructor
-	public Zona(String nombre, Zoologico zoo, Animal[] animales) {
+		// Se muestran varios constructuores sobrecargados para uso según necesidad :]
+	public Zona(String nombre, Zoologico zoo, Vector<Animal> animales) {
 		this.nombre = nombre;
-		this.zoo = zoo;
+		this.zoo[0] = zoo;
 		this.animales = animales;
 	}
 	
 	public Zona(String nombre, Zoologico zoo) {
 		this.nombre = nombre;
-		this.zoo = zoo;
+		this.zoo[0] = zoo;
 	}
 	
 	public Zona() {
@@ -27,12 +29,12 @@ public class Zona {
 	
 	// ===========================================================
 	// Métodos
-	public void agregarAnimales() {
-		// código del método
+	public void agregarAnimales(Animal animal) {
+		animales.add(animal);
 	}
 	
-	public void cantidadAnimales() {
-		// código del método
+	public int cantidadAnimales() {
+		return animales.size();
 	}
 
 	// ===========================================================
@@ -46,18 +48,18 @@ public class Zona {
 	}
 
 	public Zoologico getZoo() {
-		return zoo;
+		return zoo[0];
 	}
 
 	public void setZoo(Zoologico zoo) {
-		this.zoo = zoo;
+		this.zoo[0] = zoo;
 	}
 
-	public Animal[] getAnimales() {
+	public Vector<Animal> getAnimales() {
 		return animales;
 	}
 
-	public void setAnimales(Animal[] animales) {
+	public void setAnimales(Vector<Animal> animales) {
 		this.animales = animales;
 	}
 	
