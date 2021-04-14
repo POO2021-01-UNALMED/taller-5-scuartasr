@@ -32,12 +32,12 @@ public class Mamifero extends Animal {
 	}
 	
 	public Mamifero() {
-		// Vacío 
+		listado.add(this);
 	}
 	
 	// ===========================================================
 	// Métodos principales
-	public int cantidadMamiferos() {
+	public static int cantidadMamiferos() {
 		return listado.size();
 	}
 	
@@ -51,7 +51,7 @@ public class Mamifero extends Animal {
 		return new Mamifero(nombre, edad, "selva", genero, true, 4);
 	}
 
-	public static Vector<Mamifero> getListado() {
+	public static Vector<Mamifero> getListadoM() {
 		return listado;
 	}
 	

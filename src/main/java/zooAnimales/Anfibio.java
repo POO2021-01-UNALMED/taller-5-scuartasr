@@ -31,14 +31,14 @@ public class Anfibio extends Animal {
 	}
 	
 	public Anfibio() {
-		// Vacío
+		listado.add(this);
 	}
 	
 	
 	// ===========================================================
 	// Métodos principales
 	
-	public int cantidadAnfibios() {
+	public static int cantidadAnfibios() {
 		return listado.size();
 	}
 	
@@ -58,7 +58,7 @@ public class Anfibio extends Animal {
 	
 	// ===========================================================
 	// Getters y setters
-	public static Vector<Anfibio> getListado() {
+	public static Vector<Anfibio> getListadoAnf() {
 		return listado;
 	}
 

@@ -28,13 +28,13 @@ public class Ave extends Animal {
 	}
 	
 	public Ave() {
-		// Vacío
+		listado.add(this);
 	}
 	
 	// ===========================================================
 	// Métodos principales
 	
-	public int cantidadAves() {
+	public static int cantidadAves() {
 		return listado.size();
 	}
 	
@@ -56,7 +56,7 @@ public class Ave extends Animal {
 	// ===========================================================
 	// Getters y setters
 		
-	public static Vector<Ave> getListado() {
+	public static Vector<Ave> getListadoA() {
 		return listado;
 	}
 

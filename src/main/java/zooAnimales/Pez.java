@@ -31,12 +31,12 @@ public class Pez extends Animal {
 	}
 	
 	public Pez() {
-		// Vacío
+		listado.add(this);
 	}
 	
 	// ===========================================================
 	// Métodos principales
-	public int cantidadPeces() {
+	public static int cantidadPeces() {
 		return listado.size();
 	}
 	
@@ -56,7 +56,7 @@ public class Pez extends Animal {
 	
 	// ===========================================================
 	// Getters y setters
-	public static Vector<Pez> getListado() {
+	public static Vector<Pez> getListadoPez() {
 		return listado;
 	}
 

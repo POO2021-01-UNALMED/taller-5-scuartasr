@@ -31,13 +31,13 @@ public class Reptil extends Animal {
 	}
 	
 	public Reptil() {
-		// Vacío
+		listado.add(this);
 	}
 	
 	// ===========================================================
 	// Métodos principales
 	
-	public int cantidadReptiles() {
+	public static int cantidadReptiles() {
 		return listado.size();
 	}
 	
@@ -57,7 +57,7 @@ public class Reptil extends Animal {
 
 	// ===========================================================
 	// Getters y setters
-	public static Vector<Reptil> getListado() {
+	public static Vector<Reptil> getListadoR() {
 		return listado;
 	}
 
